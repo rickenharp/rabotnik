@@ -28,6 +28,7 @@ end
 
 group :development do
   gem "guard"
+  gem "guard-bundler"
 end
 
 # To use ActiveModel has_secure_password
