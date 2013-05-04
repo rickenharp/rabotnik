@@ -4,6 +4,10 @@
   <b>Name:</b>
   <%= @project.name %>
 </p>
+<p>
+  <b>Keywords:</b>
+  <%= link_to @project.keywords.count, project_keywords_path(@project) %>
+</p>
 
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

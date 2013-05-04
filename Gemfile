@@ -25,6 +25,8 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem "rspec-rails", "~> 2.13.1"
+  gem "factory_girl_rails", "~> 4.2.1"
+  gem 'faker'
 end
 
 group :development do
@@ -34,7 +36,7 @@ group :development do
 end
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0', :require => 'bcrypt'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @keyword.content %>
+</p>
+
+<p>
+  <b>Munged content:</b>
+  <%= @keyword.munged_content %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @keyword.project.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_keyword_path(@project, @keyword) %> |
+<%= link_to 'Back', project_keywords_path(@project) %>
