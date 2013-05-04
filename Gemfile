@@ -7,6 +7,10 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'resque'
+gem 'parallel'
+gem 'kaminari'
+gem 'state_machine'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,12 +22,15 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'zurb-foundation', '~> 4.0.0'
 end
 
 gem 'jquery-rails'
 
 group :development, :test do
   gem "rspec-rails", "~> 2.13.1"
+  gem "factory_girl_rails", "~> 4.2.1"
+  gem 'faker'
 end
 
 group :development do
@@ -33,7 +40,7 @@ group :development do
 end
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0', :require => 'bcrypt'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

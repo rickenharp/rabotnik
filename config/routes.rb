@@ -1,4 +1,14 @@
 Rabotnik::Application.routes.draw do
+
+
+  resources :projects do
+    resource :keyword_import, :only => [:new, :create]
+    resources :keywords do
+      put 'cluster', :on => :collection
+    end
+  end
+
+
   mount Resque::Server.new, :at => "/resque"
   # The priority is based upon order of creation:
   # first created -> highest priority.

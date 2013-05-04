@@ -1,0 +1,37 @@
+<h1>Listing keywords for <%= @project.name %></h1>
+
+Project state: <%= @project.state %>
+<% if @project.being_clustered? %>
+  (<%= sprintf("%.2f %%",@project.percent_done) %>)
+<% end %>
+<br />
+
+<%= paginate @keywords %>
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Munged content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @keywords.each do |keyword| %>
+  <tr>
+    <td><%= keyword.content %></td>
+    <td><%= keyword.munged_content %></td>
+    <td><%= link_to 'Show', [@project,keyword], :class => "button" %></td>
+    <td><%= link_to 'Edit', edit_project_keyword_path(@project,keyword), :class => "button" %></td>
+    <td><%= link_to 'Destroy', [@project, keyword], method: :delete, data: { confirm: 'Are you sure?' }, :class => "button" %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Import Keywords', new_project_keyword_import_path(@project), :class => "button" %>
+<%= link_to 'New Keyword', new_project_keyword_path(@project), :class => "button" %>
+
+<%= form_for(@project, :url => cluster_project_keywords_path(@project), :as => :put) do |f| %>
+  <%= f.submit("Cluster", :class => "button", :disabled => !@project.can_cluster?) %>
+<% end %>
