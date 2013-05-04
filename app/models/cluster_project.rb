@@ -11,6 +11,8 @@ class ClusterProject
     Parallel.each(keywords) do |keyword|
       ActiveRecord::Base.connection.reconnect!
       keyword.cluster!
+      @project.update_progress
     end
+    ActiveRecord::Base.verify_active_connections!
   end
 end

@@ -5,5 +5,6 @@ class ClusterJob
     project = Project.find(project_id)
     clusterer = ClusterProject.new(project)
     clusterer.cluster
+    project.finish_clustering
   end
 end

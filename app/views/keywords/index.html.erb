@@ -1,5 +1,11 @@
 <h1>Listing keywords for <%= @project.name %></h1>
 
+Project state: <%= @project.state %>
+<% if @project.being_clustered? %>
+  (<%= sprintf("%.2f %%",@project.percent_done) %>)
+<% end %>
+<br />
+
 <%= paginate @keywords %>
 <table>
   <tr>
@@ -25,6 +31,7 @@
 
 <%= link_to 'Import Keywords', new_project_keyword_import_path(@project), :class => "button" %>
 <%= link_to 'New Keyword', new_project_keyword_path(@project), :class => "button" %>
+
 <%= form_for(@project, :url => cluster_project_keywords_path(@project), :as => :put) do |f| %>
-  <%= f.submit("Cluster", :class => "button") %>
+  <%= f.submit("Cluster", :class => "button", :disabled => !@project.can_cluster?) %>
 <% end %>

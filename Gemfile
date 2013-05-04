@@ -9,6 +9,8 @@ gem 'pg'
 gem 'resque'
 gem 'parallel'
 gem 'kaminari'
+gem 'state_machine'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

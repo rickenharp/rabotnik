@@ -13,7 +13,7 @@ class KeywordImportsController < ApplicationController
   def create
     @keyword_import = KeywordImport.new(params[:keyword_import].merge(project: @project))
     if @keyword_import.import
-      redirect_to [@project, @keywords], :notice => "Keywords imported"
+      redirect_to project_keywords_url(@project, @keywords), :notice => "Keywords imported"
     else
       render action: new
     end
