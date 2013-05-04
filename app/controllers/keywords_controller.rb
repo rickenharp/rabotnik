@@ -9,7 +9,7 @@ class KeywordsController < ApplicationController
     end
   end
   def index
-    @keywords = @project.keywords.all
+    @keywords = @project.keywords.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
