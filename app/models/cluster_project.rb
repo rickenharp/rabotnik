@@ -8,7 +8,8 @@ class ClusterProject
   
   def cluster
     keywords = @project.keywords.all
-    keywords.each do |keyword|
+    Parallel.each(keywords) do |keyword|
+      ActiveRecord::Base.connection.reconnect!
       keyword.cluster!
     end
   end
