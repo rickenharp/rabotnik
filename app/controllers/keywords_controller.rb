@@ -90,8 +90,7 @@ class KeywordsController < ApplicationController
   end
 
   def cluster
-    clusterer = ClusterProject.new(@project)
-    clusterer.cluster
-    redirect_to project_keywords_url(@project), :notice => "Project has been clustered"
+    Resque.enqueue(ClusterJob,@project.id)
+    redirect_to project_keywords_url(@project), :notice => "Project is being clustered"
   end
 end
