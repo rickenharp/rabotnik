@@ -91,7 +91,7 @@ class KeywordsController < ApplicationController
 
   def cluster
     @project.cluster
-    Resque.enqueue(ClusterJob,@project.id)
+    Backburner.enqueue(ClusterJob,@project.id)
     redirect_to project_keywords_url(@project), :notice => "Project is being clustered"
   end
 end

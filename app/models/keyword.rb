@@ -18,6 +18,6 @@ class Keyword < ActiveRecord::Base
   private
 
   def cost_factor
-    12
+    13
   end
 end

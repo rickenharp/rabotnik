@@ -9,7 +9,7 @@ Rabotnik::Application.routes.draw do
   end
 
 
-  mount Resque::Server.new, :at => "/resque"
+  mount BeanstalkdView::Server, :at => "/beanstalkd"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

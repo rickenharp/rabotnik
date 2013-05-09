@@ -6,7 +6,9 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'resque'
+gem 'thin'
+gem 'backburner'
+gem 'beanstalkd_view'
 gem 'parallel'
 gem 'kaminari'
 gem 'state_machine'
@@ -37,6 +39,7 @@ group :development do
   gem "guard"
   gem "guard-bundler"
   gem "guard-rspec"
+  gem 'quiet_assets'
 end
 
 # To use ActiveModel has_secure_password
